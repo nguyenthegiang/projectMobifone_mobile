@@ -65,7 +65,7 @@ class HomeScreenState extends State<HomeScreen> {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Image.asset(
-                            "assets/images/flutter-logo.png",
+                            "assets/images/mobifone-logo.png",
                             width: 80,
                             height: 80,
                           ),
