@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       //Material App
       debugShowCheckedModeBanner: false,
-      title: "Login App",
+      title: "Mobifone App",
       home: HomeScreen(),
     );
   }
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
-  //StateFullWidget
+  //Trang chủ
 
   @override
   HomeScreenState createState() => HomeScreenState();

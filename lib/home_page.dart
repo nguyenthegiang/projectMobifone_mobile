@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
-  //StatelessWidget
+  //Demo trang Home Page: làm cái link đến thôi
 
   @override
   Widget build(BuildContext context) {

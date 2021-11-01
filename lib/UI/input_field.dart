@@ -56,6 +56,11 @@ class _InputFieldState extends State<InputField> {
                       fontSize: 20,
                       color: Colors.black,
                     ),
+
+                    //Nếu input là Password thì ẩn text
+                    obscureText: widget.hintText == "Password" ? true : false,
+                    enableSuggestions: false,
+                    autocorrect: false,
                   ),
                 ),
               ),
