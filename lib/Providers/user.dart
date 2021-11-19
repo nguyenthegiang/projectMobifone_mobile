@@ -32,7 +32,8 @@ class User with ChangeNotifier {
         }),
       );
 
-      //Nhận về và phân tích response ở đây
+      /*Nhận về và phân tích response ở đây, nếu login ko thành công thì cx
+      throw error*/
     } catch (error) {
       rethrow;
     }
