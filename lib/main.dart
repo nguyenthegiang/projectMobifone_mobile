@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import './Providers/user_dao.dart';
+import 'package:provider/provider.dart';
 
 import './Screens/home_screen.dart';
 import './Screens/login_screen.dart';
@@ -10,13 +12,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Mobifone App",
-      home: LoginScreen(),
-      routes: {
-        HomeScreen.routeName: (ctx) => HomeScreen(),
-      },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (ctx) => UserDAO(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: "Mobifone App",
+        home: LoginScreen(),
+        routes: {
+          HomeScreen.routeName: (ctx) => HomeScreen(),
+        },
+      ),
     );
   }
 }
