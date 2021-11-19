@@ -18,4 +18,23 @@ class User with ChangeNotifier {
     required this.password,
     this.isLoggedin = false,
   });
+
+  /* Function để thực hiện chức năng Login cho User truyền vào = cách gửi 
+  HTTP Requests đến Server */
+  Future<void> login(User user) async {
+    const url = 'Enter_URL_here';
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        body: json.encode({
+          'username': user.username,
+          'password': user.password,
+        }),
+      );
+
+      //Nhận về và phân tích response ở đây
+    } catch (error) {
+      rethrow;
+    }
+  }
 }
