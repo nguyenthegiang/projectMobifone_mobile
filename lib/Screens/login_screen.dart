@@ -6,7 +6,7 @@ import 'home_screen.dart';
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
 
-  //Tạo Route cho Navigation
+  //Tạo Route cho Navigation2
   static const routeName = '/login';
 
   @override
