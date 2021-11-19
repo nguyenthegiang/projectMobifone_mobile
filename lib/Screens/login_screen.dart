@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../Widget/input_field.dart';
-import 'home_screen.dart';
+import './home_screen.dart';
 
-class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   //Tạo Route cho Navigation
   static const routeName = '/login';
@@ -73,8 +73,9 @@ class Login extends StatelessWidget {
                       child: RaisedButton(
                         //Raised Button
                         onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => MyHomePage()));
+                          //Navigate sang home Page
+                          Navigator.of(context)
+                              .pushReplacementNamed(HomeScreen.routeName);
                         },
                         color: Colors.indigo,
                         textColor: Colors.white,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'Screens/login_screen.dart';
+import './Screens/home_screen.dart';
+import './Screens/login_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -9,30 +10,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      //Material App
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Mobifone App",
-      home: HomeScreen(),
-    );
-  }
-}
-
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
-  //Trang chủ
-
-  @override
-  HomeScreenState createState() => HomeScreenState();
-}
-
-class HomeScreenState extends State<HomeScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      //Scaffold
-      body: Login(),
+      home: LoginScreen(),
+      routes: {
+        HomeScreen.routeName: (ctx) => HomeScreen(),
+      },
     );
   }
 }

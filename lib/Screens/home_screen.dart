@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   //Demo trang Home Page: làm cái link đến thôi
+
+  //Tạo Route cho Navigation
+  static const routeName = '/home';
 
   @override
   Widget build(BuildContext context) {
