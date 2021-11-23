@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
+//Home Page
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
-
-  //Demo trang Home Page: làm cái link đến thôi
 
   //Tạo Route cho Navigation
   static const routeName = '/home';
@@ -11,10 +10,36 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //Home Page Scaffold
       appBar: AppBar(
-        title: const Text("Home Page"),
-        centerTitle: true,
+        //Logo
+        title: Image.asset('assets/images/appBar_logo.png', fit: BoxFit.cover),
+        backgroundColor: const Color.fromARGB(255, 26, 26, 38),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.article_outlined),
+            iconSize: 30.0,
+            onPressed: () {
+              //...
+            },
+            color: const Color.fromARGB(255, 71, 79, 100),
+          ),
+          IconButton(
+            icon: const Icon(Icons.menu),
+            iconSize: 30.0,
+            onPressed: () {
+              //...
+            },
+            color: const Color.fromARGB(255, 71, 79, 100),
+          ),
+          IconButton(
+            icon: const Icon(Icons.account_box_rounded),
+            iconSize: 30.0,
+            onPressed: () {
+              //..
+            },
+            color: const Color.fromARGB(255, 71, 79, 100),
+          ),
+        ],
       ),
       body: const Center(
         child: Text("My Home  Page"),

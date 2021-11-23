@@ -21,7 +21,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Mobifone App",
-        home: LoginScreen(),
+        //Chuyển tạm sang Home Screen để Design đã
+        home: HomeScreen(),
         routes: {
           HomeScreen.routeName: (ctx) => HomeScreen(),
         },
