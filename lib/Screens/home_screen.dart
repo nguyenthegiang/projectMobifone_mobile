@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../Widget/card_1.dart';
+
 //Home Page
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -41,8 +43,14 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: const Center(
-        child: Text("My Home  Page"),
+      //Làm cho nó Scrollable
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Card1(),
+          ],
+        ),
       ),
     );
   }

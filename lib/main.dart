@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
-import './Providers/user_dao.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
+import './Providers/user_dao.dart';
 import './Screens/home_screen.dart';
 import './Screens/login_screen.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  //Chỉ cho phép hiển thị dọc
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
