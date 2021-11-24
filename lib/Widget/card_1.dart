@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import './card_1_chart.dart';
 import './card_1_menu.dart';
 
 class Card1 extends StatelessWidget {
@@ -15,12 +16,7 @@ class Card1 extends StatelessWidget {
         child: Column(
           children: [
             //Radial Bar Chart
-            Container(
-              //Chart goes here!
-              height: 300,
-              child: Text('CHART!'),
-              color: Colors.greenAccent,
-            ),
+            Card1Chart(),
             //Vài Button xếp trong GridView
             Container(
               height: 400,
