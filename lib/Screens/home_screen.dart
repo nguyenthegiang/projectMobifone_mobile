@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../Widget/card_5.dart';
 import '../Widget/card_4.dart';
 import '../Widget/card_3.dart';
 import '../Widget/card_2.dart';
@@ -57,6 +58,7 @@ class HomeScreen extends StatelessWidget {
             Card2(),
             Card3(),
             Card4(),
+            Card5(),
           ],
         ),
       ),
