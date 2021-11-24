@@ -14,6 +14,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 237, 237, 247),
       appBar: AppBar(
         //Logo
         title: Image.asset('assets/images/appBar_logo.png', fit: BoxFit.cover),
