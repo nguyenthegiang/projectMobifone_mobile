@@ -32,7 +32,11 @@ class _Card2ChartState extends State<Card2Chart> {
             text: 'VLR Công ty 4',
             alignment: ChartAlignment.near,
           ),
-          legend: Legend(isVisible: true, position: LegendPosition.bottom),
+          legend: Legend(
+            isVisible: true,
+            position: LegendPosition.bottom,
+            overflowMode: LegendItemOverflowMode.wrap,
+          ),
           tooltipBehavior: _tooltipBehavior,
           series: <ChartSeries>[
             ColumnSeries<ChartData, String>(

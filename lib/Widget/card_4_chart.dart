@@ -32,7 +32,11 @@ class _Card4ChartState extends State<Card4Chart> {
             text: 'Page Statistics',
             alignment: ChartAlignment.near,
           ),
-          legend: Legend(isVisible: true),
+          legend: Legend(
+            isVisible: true,
+            overflowMode: LegendItemOverflowMode.wrap,
+            position: LegendPosition.bottom,
+          ),
           tooltipBehavior: _tooltipBehavior,
           series: <ChartSeries>[
             StackedLineSeries<ChartData, String>(
