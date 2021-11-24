@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../Widget/card_3.dart';
+import '../Widget/card_2.dart';
 import '../Widget/card_1.dart';
 
 //Home Page
@@ -50,6 +52,8 @@ class HomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Card1(),
+            Card2(),
+            Card3(),
           ],
         ),
       ),
