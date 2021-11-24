@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './card_2_chart.dart';
 
 class Card2 extends StatelessWidget {
   const Card2({
@@ -10,7 +11,7 @@ class Card2 extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(10),
       child: Card(
-        child: Text('Build later!'),
+        child: Card2Chart(),
       ),
     );
   }
