@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../Widget/screen_appbar.dart';
-import '../Widget/card_6.dart';
-import '../Widget/card_5.dart';
-import '../Widget/card_4.dart';
-import '../Widget/card_3.dart';
-import '../Widget/card_2.dart';
-import '../Widget/card_1.dart';
+import '../Widget/home_screen_widgets/card_6.dart';
+import '../Widget/home_screen_widgets/card_5.dart';
+import '../Widget/home_screen_widgets/card_4.dart';
+import '../Widget/home_screen_widgets/card_3.dart';
+import '../Widget/home_screen_widgets/card_2.dart';
+import '../Widget/home_screen_widgets/card_1.dart';
 
 //Home Page
 class HomeScreen extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_mobifone_mobile/Widget/card_6_menu_item.dart';
+import './card_6_menu_item.dart';
 
 class Card6 extends StatelessWidget {
   //Khởi tạo list menu items
