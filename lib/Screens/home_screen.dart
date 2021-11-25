@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../Widget/screen_appbar.dart';
 import '../Widget/card_6.dart';
 import '../Widget/card_5.dart';
 import '../Widget/card_4.dart';
@@ -18,38 +19,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 237, 237, 247),
-      appBar: AppBar(
-        //Logo
-        title: Image.asset('assets/images/appBar_logo.png', fit: BoxFit.cover),
-        backgroundColor: const Color.fromARGB(255, 26, 26, 38),
-        //3 nút trên AppBar
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.article_outlined),
-            iconSize: 30.0,
-            onPressed: () {
-              //...
-            },
-            color: const Color.fromARGB(255, 71, 79, 100),
-          ),
-          IconButton(
-            icon: const Icon(Icons.menu),
-            iconSize: 30.0,
-            onPressed: () {
-              //...
-            },
-            color: const Color.fromARGB(255, 71, 79, 100),
-          ),
-          IconButton(
-            icon: const Icon(Icons.person),
-            iconSize: 30.0,
-            onPressed: () {
-              //..
-            },
-            color: const Color.fromARGB(255, 71, 79, 100),
-          ),
-        ],
-      ),
+      appBar: ScreenAppBar(),
       //Làm cho nó Scrollable
       body: SingleChildScrollView(
         child: Column(

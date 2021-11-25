@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../Widget/screen_appbar.dart';
+
 //Màn hình hiển thị tra cứu
 class LookUpDisplayScreen extends StatelessWidget {
   const LookUpDisplayScreen({Key? key}) : super(key: key);
@@ -9,6 +11,9 @@ class LookUpDisplayScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 237, 237, 247),
+      appBar: ScreenAppBar(),
+    );
   }
 }
