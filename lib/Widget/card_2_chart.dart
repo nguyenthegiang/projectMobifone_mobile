@@ -58,7 +58,7 @@ class _Card2ChartState extends State<Card2Chart> {
             SplineSeries<ChartData, String>(
               dataSource: _chartData,
               xValueMapper: (ChartData cdata, _) => cdata.dataName,
-              yValueMapper: (ChartData cdata, _) => cdata.Them1,
+              yValueMapper: (ChartData cdata, _) => cdata.them1,
               name: 'Theme 1',
             ),
           ],
@@ -93,12 +93,12 @@ class ChartData {
   final String dataName;
   final num websiteBlog;
   final num socialMedia;
-  final num Them1;
+  final num them1;
 
   ChartData(
     this.dataName,
     this.websiteBlog,
     this.socialMedia,
-    this.Them1,
+    this.them1,
   );
 }

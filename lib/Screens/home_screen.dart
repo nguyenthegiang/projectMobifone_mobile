@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../Widget/card_6.dart';
 import '../Widget/card_5.dart';
 import '../Widget/card_4.dart';
 import '../Widget/card_3.dart';
@@ -54,11 +55,13 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            //có thể chuyển sang ListView.builder
             Card1(),
             Card2(),
             Card3(),
             Card4(),
             Card5(),
+            Card6(),
           ],
         ),
       ),
