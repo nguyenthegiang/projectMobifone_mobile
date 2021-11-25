@@ -44,6 +44,8 @@ class _Card2ChartState extends State<Card2Chart> {
               xValueMapper: (ChartData cdata, _) => cdata.dataName,
               yValueMapper: (ChartData cdata, _) => cdata.websiteBlog,
               name: 'Website Blog',
+              //style
+              color: Color.fromARGB(255, 41, 160, 249),
             ),
             SplineSeries<ChartData, String>(
               dataSource: _chartData,
@@ -54,12 +56,18 @@ class _Card2ChartState extends State<Card2Chart> {
                 isVisible: true,
                 shape: DataMarkerType.rectangle,
               ),
+              //style
+              color: Color.fromARGB(255, 9, 225, 155),
+              width: 5,
             ),
             SplineSeries<ChartData, String>(
               dataSource: _chartData,
               xValueMapper: (ChartData cdata, _) => cdata.dataName,
               yValueMapper: (ChartData cdata, _) => cdata.them1,
               name: 'Theme 1',
+              //style
+              color: Color.fromARGB(255, 155, 124, 250),
+              width: 3,
             ),
           ],
           primaryXAxis: CategoryAxis(),

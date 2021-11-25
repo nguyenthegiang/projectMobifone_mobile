@@ -43,6 +43,15 @@ class _Card3ChartState extends State<Card3Chart> {
           ),
           //tooltip
           tooltipBehavior: _tooltipBehavior,
+          //Style: màu chart
+          palette: [
+            Color.fromARGB(255, 255, 91, 122),
+            Color.fromARGB(255, 255, 181, 48),
+            Color.fromARGB(255, 26, 178, 126),
+            Color.fromARGB(255, 35, 158, 252),
+            Color.fromARGB(255, 119, 94, 211),
+          ],
+
           //Loại chart
           series: <CircularSeries>[
             DoughnutSeries<ChartData, String>(

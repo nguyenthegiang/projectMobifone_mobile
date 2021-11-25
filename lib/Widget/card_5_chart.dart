@@ -47,6 +47,8 @@ class _Card5ChartState extends State<Card5Chart> {
           //Ẩn cái grid ở background
           isVisible: false,
         ),
+        borderColor: Colors.white,
+        borderWidth: 0,
         tooltipBehavior: _tooltip,
         series: <ChartSeries<_ChartData, String>>[
           SplineAreaSeries<_ChartData, String>(

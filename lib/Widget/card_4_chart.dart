@@ -44,21 +44,29 @@ class _Card4ChartState extends State<Card4Chart> {
               xValueMapper: (ChartData cdata, _) => cdata.dataName,
               yValueMapper: (ChartData cdata, _) => cdata.sessionDuration,
               name: 'Session Duration',
-              markerSettings: MarkerSettings(isVisible: true),
+              //style
+              color: Color.fromARGB(255, 35, 158, 252),
+              width: 5,
             ),
             SplineSeries<ChartData, String>(
               dataSource: _chartData,
               xValueMapper: (ChartData cdata, _) => cdata.dataName,
               yValueMapper: (ChartData cdata, _) => cdata.pageViews,
               name: 'Page Views',
+              //style
               markerSettings: MarkerSettings(isVisible: true),
+              color: Color.fromARGB(255, 42, 232, 167),
+              width: 3,
             ),
             SplineSeries<ChartData, String>(
               dataSource: _chartData,
               xValueMapper: (ChartData cdata, _) => cdata.dataName,
               yValueMapper: (ChartData cdata, _) => cdata.totalVisits,
               name: 'Total Visits',
+              //style
               markerSettings: MarkerSettings(isVisible: true),
+              color: Color.fromARGB(255, 255, 181, 48),
+              width: 3,
             ),
           ],
           primaryXAxis: CategoryAxis(),

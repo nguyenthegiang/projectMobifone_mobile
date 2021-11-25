@@ -32,14 +32,22 @@ class _Card1ChartState extends State<Card1Chart> {
       child: SafeArea(
         child: SfCircularChart(
           //tên chart
-          title: ChartTitle(text: 'This is Chart Title'),
+          //title: ChartTitle(text: 'This is Chart Title'),
           //chú thích
           legend: Legend(
             isVisible: true,
             overflowMode: LegendItemOverflowMode.wrap,
+            position: LegendPosition.bottom,
           ),
           //tooltip
           tooltipBehavior: _tooltipBehavior,
+          //list các color cho chart
+          palette: <Color>[
+            Color.fromARGB(255, 255, 91, 122),
+            Color.fromARGB(255, 255, 181, 48),
+            Color.fromARGB(255, 26, 178, 126),
+            Color.fromARGB(255, 35, 158, 252),
+          ],
           //Loại chart
           series: <CircularSeries>[
             RadialBarSeries<ChartData, String>(
@@ -55,6 +63,8 @@ class _Card1ChartState extends State<Card1Chart> {
               enableTooltip: true,
               //maximum value: giá trị tối đa để dựa vào đó các cột hiển thị
               maximumValue: 100,
+              //Màu nền của column chart
+              trackColor: Color.fromARGB(255, 241, 243, 242),
             )
           ],
         ),
