@@ -16,16 +16,16 @@ class _Card5ChartState extends State<Card5Chart> {
   @override
   void initState() {
     data = [
-      _ChartData('Jan', 37),
-      _ChartData('Feb', 37),
-      _ChartData('Mar', 32),
-      _ChartData('Apr', 33),
-      _ChartData('May', 34),
-      _ChartData('Jun', 35),
-      _ChartData('Jul', 35),
-      _ChartData('Aug', 36),
-      _ChartData('Sep', 38),
-      _ChartData('Oct', 40),
+      _ChartData('Jan', 35),
+      _ChartData('Feb', 35),
+      _ChartData('Mar', 30),
+      _ChartData('Apr', 31),
+      _ChartData('May', 33),
+      _ChartData('Jun', 36),
+      _ChartData('Jul', 39),
+      _ChartData('Aug', 39),
+      _ChartData('Sep', 42),
+      _ChartData('Oct', 45),
     ];
     _tooltip = TooltipBehavior(enable: true);
     super.initState();
@@ -42,7 +42,7 @@ class _Card5ChartState extends State<Card5Chart> {
         ),
         primaryYAxis: NumericAxis(
           minimum: 0,
-          maximum: 40,
+          maximum: 45,
           interval: 10,
           //Ẩn cái grid ở background
           isVisible: false,
