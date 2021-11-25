@@ -45,7 +45,7 @@ class _Card2ChartState extends State<Card2Chart> {
               yValueMapper: (ChartData cdata, _) => cdata.websiteBlog,
               name: 'Website Blog',
             ),
-            StackedLineSeries<ChartData, String>(
+            SplineSeries<ChartData, String>(
               dataSource: _chartData,
               xValueMapper: (ChartData cdata, _) => cdata.dataName,
               yValueMapper: (ChartData cdata, _) => cdata.socialMedia,
@@ -55,7 +55,7 @@ class _Card2ChartState extends State<Card2Chart> {
                 shape: DataMarkerType.rectangle,
               ),
             ),
-            StackedLineSeries<ChartData, String>(
+            SplineSeries<ChartData, String>(
               dataSource: _chartData,
               xValueMapper: (ChartData cdata, _) => cdata.dataName,
               yValueMapper: (ChartData cdata, _) => cdata.Them1,

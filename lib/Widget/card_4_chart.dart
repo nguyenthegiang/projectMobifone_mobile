@@ -39,21 +39,21 @@ class _Card4ChartState extends State<Card4Chart> {
           ),
           tooltipBehavior: _tooltipBehavior,
           series: <ChartSeries>[
-            StackedLineSeries<ChartData, String>(
+            SplineSeries<ChartData, String>(
               dataSource: _chartData,
               xValueMapper: (ChartData cdata, _) => cdata.dataName,
               yValueMapper: (ChartData cdata, _) => cdata.sessionDuration,
               name: 'Session Duration',
               markerSettings: MarkerSettings(isVisible: true),
             ),
-            StackedLineSeries<ChartData, String>(
+            SplineSeries<ChartData, String>(
               dataSource: _chartData,
               xValueMapper: (ChartData cdata, _) => cdata.dataName,
               yValueMapper: (ChartData cdata, _) => cdata.pageViews,
               name: 'Page Views',
               markerSettings: MarkerSettings(isVisible: true),
             ),
-            StackedLineSeries<ChartData, String>(
+            SplineSeries<ChartData, String>(
               dataSource: _chartData,
               xValueMapper: (ChartData cdata, _) => cdata.dataName,
               yValueMapper: (ChartData cdata, _) => cdata.totalVisits,
