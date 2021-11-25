@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import './Providers/user_dao.dart';
 import './Screens/home_screen.dart';
 import './Screens/login_screen.dart';
+import './Screens/lookup_display_screen.dart';
 
 void main() {
   //Chỉ cho phép hiển thị dọc
@@ -30,10 +31,11 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Mobifone App",
-        //Chuyển tạm sang Home Screen để Design đã
-        home: HomeScreen(),
+        //Chuyển tạm sang LookupDisplay Screen để Design đã
+        home: LookUpDisplayScreen(),
         routes: {
           HomeScreen.routeName: (ctx) => HomeScreen(),
+          LookUpDisplayScreen.routeName: (ctx) => LookUpDisplayScreen(),
         },
       ),
     );
