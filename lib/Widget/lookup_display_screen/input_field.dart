@@ -8,6 +8,7 @@ class InputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Card(
+        elevation: 0,
         child: Padding(
           padding: const EdgeInsets.all(15),
           child: Column(
