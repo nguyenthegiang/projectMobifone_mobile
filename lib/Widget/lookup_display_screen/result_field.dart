@@ -27,7 +27,7 @@ class ResultFied extends StatelessWidget {
                   child: Text(
                     'Thông tin thuê bao',
                     style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 20,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -42,100 +42,279 @@ class ResultFied extends StatelessWidget {
               children: [
                 TableRow(children: [
                   TableCell(
-                    child: Text('Tên khách hàng'),
-                  ),
-                  TableCell(
-                    child: Text('Bùi Văn Quỳnh'),
-                  ),
-                ]),
-                TableRow(children: [
-                  TableCell(
-                    child: Text('Gói hiện tại'),
-                  ),
-                  TableCell(
-                    child: Text('...'),
-                  ),
-                ]),
-                TableRow(children: [
-                  TableCell(
-                    child: Text('Lịch sử gói đăng ký'),
-                  ),
-                  TableCell(
-                    child: Text('  '),
-                  ),
-                ]),
-                TableRow(children: [
-                  TableCell(
-                    child: Text('Xã Online gần nhất'),
-                  ),
-                  TableCell(
-                    child: Text('   '),
-                  ),
-                ]),
-                TableRow(children: [
-                  TableCell(
-                    child: Text('Lưu lượng data 3 tháng gần nhất'),
-                  ),
-                  TableCell(
-                    child: Text('50MB'),
-                  ),
-                ]),
-                TableRow(children: [
-                  TableCell(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('Lưu lượng thoại            |'),
-                        Text('Ngoại mạng'),
-                      ],
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Tên khách hàng',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
                     ),
                   ),
                   TableCell(
-                    child: Text('50 phút'),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Bùi Văn Quỳnh',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
                   ),
                 ]),
                 TableRow(children: [
                   TableCell(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('Lưu lượng thoại            |'),
-                        Text('Nội mạng'),
-                      ],
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Gói hiện tại',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
                     ),
                   ),
                   TableCell(
-                    child: Text('50 phút'),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        '...',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
                   ),
                 ]),
                 TableRow(children: [
                   TableCell(
-                    child: Text('Arpu bình quân'),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Lịch sử gói đăng ký',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
                   ),
                   TableCell(
-                    child: Text('   '),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        '  ',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
                   ),
                 ]),
                 TableRow(children: [
                   TableCell(
-                    child: Text('Arpu bình quân'),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Xã Online gần nhất',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
                   ),
                   TableCell(
-                    child: Text('   '),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        '   ',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+                TableRow(children: [
+                  TableCell(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Lưu lượng data 3 tháng gần nhất',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
+                  TableCell(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        '50MB',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+                TableRow(children: [
+                  TableCell(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Lưu lượng thoại         |',
+                            style: TextStyle(
+                              fontSize: 15,
+                            ),
+                          ),
+                          Text(
+                            'Ngoại mạng',
+                            style: TextStyle(
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  TableCell(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        '50 phút',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+                TableRow(children: [
+                  TableCell(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Lưu lượng thoại         |',
+                            style: TextStyle(
+                              fontSize: 15,
+                            ),
+                          ),
+                          Text(
+                            'Nội mạng',
+                            style: TextStyle(
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  TableCell(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        '50 phút',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+                TableRow(children: [
+                  TableCell(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Arpu bình quân',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
+                  TableCell(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        '   ',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+                TableRow(children: [
+                  TableCell(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Arpu bình quân',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
+                  TableCell(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        '   ',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
                   ),
                 ]),
               ],
             ),
             SizedBox(height: 15),
+
             Table(
-              border: TableBorder.all(),
+              border: TableBorder.all(
+                color: Color.fromARGB(255, 148, 198, 252),
+              ),
               children: [
                 TableRow(children: [
-                  TableCell(
-                    child: Text('Gói cước có thể tư vấn đăng ký'),
+                  Container(
+                    color: Color.fromARGB(255, 199, 226, 255),
+                    child: TableCell(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Gói cước có thể tư vấn đăng ký',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
-                  TableCell(
-                    child: Text('   '),
+                  Container(
+                    color: Color.fromARGB(255, 199, 226, 255),
+                    child: TableCell(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          '\n',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ]),
               ],
