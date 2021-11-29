@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../../Providers/news.dart';
 import '../../Screens/news_detail_screen.dart';
 
 class NewsListItem extends StatelessWidget {
-  const NewsListItem({
-    Key? key,
-  }) : super(key: key);
+  final News news;
+
+  //nhận về 1 news để hiển thị
+  NewsListItem(this.news);
 
   @override
   Widget build(BuildContext context) {
@@ -18,22 +20,21 @@ class NewsListItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(10.0),
               //Hero Widget để làm Animation Transition khi navigate giữa 2 page
               child: Hero(
-                tag:
-                    'https://iem.hcmiu.edu.vn/wp-content/uploads/2020/11/book.jpg',
+                tag: news.imageUrl,
                 child: Image.network(
-                  'https://iem.hcmiu.edu.vn/wp-content/uploads/2020/11/book.jpg',
+                  news.imageUrl,
                   fit: BoxFit.cover,
                   height: 70.0,
                   width: 70.0,
                 ),
               ),
             ),
-            title: Text('TestTesttest',
+            title: Text(news.title,
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w500,
                 )),
-            subtitle: Text('11/11/2011'),
+            subtitle: Text(news.publishedAt.toString()),
           ),
           decoration: new BoxDecoration(
             boxShadow: [

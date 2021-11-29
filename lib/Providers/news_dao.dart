@@ -10,6 +10,11 @@ import 'news.dart';
 class NewsDAO with ChangeNotifier {
   List<News> _news = [];
 
+  //Getter
+  List<News> get items {
+    return [..._news];
+  }
+
   /*function để generate data cho Database: lúc nào cần gen lại data thì mới
   gọi đến thôi*/
   void generateNewsToDB() {
@@ -45,7 +50,7 @@ class NewsDAO with ChangeNotifier {
   }
 
   //function để lấy list news từ Database
-  void fetchNews() async {
+  Future<void> fetchNews() async {
     const url =
         'https://project-mobifone-default-rtdb.firebaseio.com/news.json';
 
@@ -67,12 +72,14 @@ class NewsDAO with ChangeNotifier {
       loadedNews.add(News(
         title: newsData['title'],
         content: newsData['content'],
-        imageUrl: newsData['imageUr'],
+        imageUrl: newsData['imageUrl'],
         publishedAt: DateTime.parse(newsData['publishedAt']),
       ));
     });
 
     //gán vào list ở local
     _news = loadedNews.toList();
+
+    notifyListeners();
   }
 }
