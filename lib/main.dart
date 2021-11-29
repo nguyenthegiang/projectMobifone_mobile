@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:project_mobifone_mobile/Providers/news_dao.dart';
 
 import 'package:provider/provider.dart';
 
@@ -29,6 +30,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (ctx) => UserDAO(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => NewsDAO(),
         ),
       ],
       child: MaterialApp(

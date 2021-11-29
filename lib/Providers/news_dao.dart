@@ -10,7 +10,8 @@ import 'news.dart';
 class NewsDAO with ChangeNotifier {
   List<News> _news = [];
 
-  //function để generate data cho Database
+  /*function để generate data cho Database: lúc nào cần gen lại data thì mới
+  gọi đến thôi*/
   void generateNewsToDB() {
     //với mỗi phần tử của listNews
     NewsDUMMYDATA.listNews.forEach((element) {
