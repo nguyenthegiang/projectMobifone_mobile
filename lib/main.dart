@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:project_mobifone_mobile/Screens/news_screen.dart';
+import 'package:project_mobifone_mobile/Screens/news_list_screen.dart';
 import 'package:provider/provider.dart';
 
 import './Providers/user_dao.dart';
@@ -33,11 +33,11 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: "Mobifone App",
         //Chuyển tạm sang News Screen để Design đã
-        home: NewsScreen(),
+        home: NewsListScreen(),
         routes: {
           HomeScreen.routeName: (ctx) => HomeScreen(),
           LookUpDisplayScreen.routeName: (ctx) => LookUpDisplayScreen(),
-          NewsScreen.routeName: (ctx) => NewsScreen(),
+          NewsListScreen.routeName: (ctx) => NewsListScreen(),
         },
       ),
     );
