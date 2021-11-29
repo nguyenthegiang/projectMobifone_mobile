@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../Widget/lookup_display_screen/input_field.dart';
-import '../Widget/lookup_display_screen/result_field.dart';
+import '../Widget/lookup_display_screen_widgets/input_field.dart';
+import '../Widget/lookup_display_screen_widgets/result_field.dart';
 import '../Widget/screen_appbar.dart';
 
 //Màn hình hiển thị tra cứu

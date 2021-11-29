@@ -14,6 +14,7 @@ class NewsListItem extends StatelessWidget {
           child: ListTile(
             leading: ClipRRect(
               borderRadius: BorderRadius.circular(10.0),
+              //Hero Widget để làm Animation Transition khi navigate giữa 2 page
               child: Hero(
                 tag:
                     'https://iem.hcmiu.edu.vn/wp-content/uploads/2020/11/book.jpg',
@@ -28,6 +29,7 @@ class NewsListItem extends StatelessWidget {
             title: Text('TestTesttest',
                 style: TextStyle(
                   color: Colors.black,
+                  fontWeight: FontWeight.w500,
                 )),
             subtitle: Text('11/11/2011'),
           ),
@@ -40,10 +42,10 @@ class NewsListItem extends StatelessWidget {
                 offset: Offset(0, 3), // changes position of shadow
               ),
             ],
-            color: Colors.purple,
+            color: Colors.blue,
             borderRadius: BorderRadius.circular(10),
             gradient: new LinearGradient(
-                colors: [Color(0xffEE9CA7), Color(0xffFFDDE1)],
+                colors: [Colors.blue.shade400, Colors.blue.shade100],
                 begin: Alignment.centerRight,
                 end: new Alignment(-1.0, -1.0)),
           ),
