@@ -12,7 +12,13 @@ class NewsDAO with ChangeNotifier {
 
   //function để generate data cho Database
   void generateNewsToDB() {
-    //_news.addAll(NewsDUMMYDATA.listNews);
+    //với mỗi phần tử của listNews
+    NewsDUMMYDATA.listNews.forEach((element) {
+      //add vào list local
+      _news.add(element);
+      //add lên DB
+      addNews(element);
+    });
   }
 
   //function để add 1 news lên DB
