@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import '../Data/news_dummy_data.dart';
 
 import 'news.dart';
 
@@ -11,15 +12,13 @@ class NewsDAO with ChangeNotifier {
 
   //function để generate data cho Database
   void generateNewsToDB() {
-    //_news.add(value)
+    //_news.addAll(NewsDUMMYDATA.listNews);
   }
 
   //function để add 1 news lên DB
   Future<void> addNews(News news) async {
     const url =
         'https://project-mobifone-default-rtdb.firebaseio.com/news.json';
-
-    final timestamp = DateTime.now();
 
     //add to DB
     final response = await http.post(
@@ -28,7 +27,7 @@ class NewsDAO with ChangeNotifier {
         'title': news.title,
         'content': news.content,
         'imageUrl': news.imageUrl,
-        'publishedAt': news.publishedAt,
+        'publishedAt': news.publishedAt.toIso8601String(),
       }),
     );
 
