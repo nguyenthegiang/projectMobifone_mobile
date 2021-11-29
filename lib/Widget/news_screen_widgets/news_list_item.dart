@@ -59,8 +59,11 @@ class NewsListItem extends StatelessWidget {
           ),
         ),
         onTap: () {
-          //Chuyển sang News Detail Screen
-          Navigator.of(context).pushNamed(NewsDetailScreen.routeName);
+          //Chuyển sang News Detail Screen, truyền news sang
+          Navigator.of(context).pushNamed(
+            NewsDetailScreen.routeName,
+            arguments: news,
+          );
         },
       ),
     );

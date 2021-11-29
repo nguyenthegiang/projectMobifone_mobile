@@ -58,7 +58,7 @@ class _NewsListScreenState extends State<NewsListScreen> {
           //Làm cho nó Scrollable
           : SingleChildScrollView(
               child: Container(
-                height: 500,
+                height: 900,
                 child: NewsList(),
               ),
             ),

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:intl/intl.dart';
+
 import '../Widget/screen_appbar.dart';
+import '../../Providers/news.dart';
 
 class NewsDetailScreen extends StatelessWidget {
   const NewsDetailScreen({Key? key}) : super(key: key);
@@ -10,6 +13,9 @@ class NewsDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //lấy news từ argument trong route để hiển thị
+    final news = ModalRoute.of(context)!.settings.arguments as News;
+
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 237, 237, 247),
       appBar: ScreenAppBar(),
@@ -18,10 +24,9 @@ class NewsDetailScreen extends StatelessWidget {
         children: [
           Container(
             child: Hero(
-              tag:
-                  'https://iem.hcmiu.edu.vn/wp-content/uploads/2020/11/book.jpg',
+              tag: news.imageUrl,
               child: Image.network(
-                'https://iem.hcmiu.edu.vn/wp-content/uploads/2020/11/book.jpg',
+                news.imageUrl,
               ),
             ),
           ),
@@ -32,7 +37,7 @@ class NewsDetailScreen extends StatelessWidget {
                   alignment: Alignment.center,
                   padding: EdgeInsets.all(10.0),
                   child: Text(
-                    'TestTesttest',
+                    news.title,
                     style: TextStyle(
                       color: Colors.grey[800],
                       fontWeight: FontWeight.bold,
@@ -44,7 +49,7 @@ class NewsDetailScreen extends StatelessWidget {
                   alignment: Alignment.topRight,
                   margin: EdgeInsets.all(5.0),
                   child: Text(
-                    '11/11/2011',
+                    DateFormat('yyyy-MM-dd').format(news.publishedAt),
                     style: TextStyle(
                       color: Colors.grey,
                     ),
@@ -53,7 +58,7 @@ class NewsDetailScreen extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(30.0),
                   child: Text(
-                    'lorem, ipsum dolor sit amet consectetur adipiscing elit. event architecture expedita perspiciatis error, laborum ratione saepe repellendus distinctio quas voluptatem reiciendis dolore eos provident totam accusantium tempora, ducimus vitae explicabo.',
+                    news.content,
                     style: TextStyle(
                       color: Colors.grey[800],
                       //fontWeight: FontWeight,
