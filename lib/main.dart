@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:project_mobifone_mobile/Screens/news_list_screen.dart';
+
 import 'package:provider/provider.dart';
 
+import './Screens/news_detail_screen.dart';
+import './Screens/news_list_screen.dart';
 import './Providers/user_dao.dart';
 import './Screens/home_screen.dart';
 import './Screens/login_screen.dart';
@@ -42,6 +44,7 @@ class MyApp extends StatelessWidget {
           HomeScreen.routeName: (ctx) => HomeScreen(),
           LookUpDisplayScreen.routeName: (ctx) => LookUpDisplayScreen(),
           NewsListScreen.routeName: (ctx) => NewsListScreen(),
+          NewsDetailScreen.routeName: (ctx) => NewsDetailScreen(),
         },
       ),
     );

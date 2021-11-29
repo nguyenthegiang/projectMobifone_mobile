@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../Screens/news_detail_screen.dart';
 
 class NewsListItem extends StatelessWidget {
   const NewsListItem({
@@ -51,7 +52,8 @@ class NewsListItem extends StatelessWidget {
           ),
         ),
         onTap: () {
-          //
+          //Chuyển sang News Detail Screen
+          Navigator.of(context).pushNamed(NewsDetailScreen.routeName);
         },
       ),
     );
