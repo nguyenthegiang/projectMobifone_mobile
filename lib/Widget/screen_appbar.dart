@@ -19,14 +19,16 @@ class ScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.blue.shade100,
       //3 nút trên AppBar
       actions: [
-        IconButton(
-          icon: const Icon(Icons.article_outlined),
-          iconSize: 30.0,
-          onPressed: () {
-            //...
-          },
-          color: const Color.fromARGB(255, 71, 79, 100),
-        ),
+        /*bỏ 1 button thừa*/
+        // IconButton(
+        //   icon: const Icon(Icons.article_outlined),
+        //   iconSize: 30.0,
+        //   onPressed: () {
+        //     //...
+        //   },
+        //   color: const Color.fromARGB(255, 71, 79, 100),
+        // ),
+        /* Navigation - Chuyển Page */
         IconButton(
           icon: const Icon(Icons.menu),
           iconSize: 30.0,
@@ -35,6 +37,7 @@ class ScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
           },
           color: const Color.fromARGB(255, 71, 79, 100),
         ),
+        /* Profile - Log out */
         IconButton(
           icon: const Icon(Icons.person),
           iconSize: 30.0,
