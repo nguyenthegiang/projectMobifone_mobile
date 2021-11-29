@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:intl/intl.dart';
+
 import '../../Providers/news.dart';
 import '../../Screens/news_detail_screen.dart';
 
@@ -34,7 +36,10 @@ class NewsListItem extends StatelessWidget {
                   color: Colors.black,
                   fontWeight: FontWeight.w500,
                 )),
-            subtitle: Text(news.publishedAt.toString()),
+            subtitle: Text(
+              //Dùng intl package để format date
+              DateFormat('yyyy-MM-dd').format(news.publishedAt),
+            ),
           ),
           decoration: new BoxDecoration(
             boxShadow: [
