@@ -14,6 +14,11 @@ class ScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      /*Dùng iconTheme để đổi màu cho cái nút mũi tên sẽ xuất hiện khi dùng
+      navigator.push()*/
+      iconTheme: IconThemeData(
+        color: Colors.black,
+      ),
       //Logo
       title: Image.asset('assets/images/appBar_logo.png', fit: BoxFit.cover),
       backgroundColor: Colors.blue.shade100,
