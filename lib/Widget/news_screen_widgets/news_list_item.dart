@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../../Providers/news_dao.dart';
 import '../../Screens/news_detail_screen.dart';
 
 class NewsListItem extends StatelessWidget {
@@ -55,8 +53,6 @@ class NewsListItem extends StatelessWidget {
           ),
         ),
         onTap: () {
-          //dùng 1 lần xong xóa: gen data cho news
-          Provider.of<NewsDAO>(context, listen: false).generateNewsToDB();
           //Chuyển sang News Detail Screen
           Navigator.of(context).pushNamed(NewsDetailScreen.routeName);
         },

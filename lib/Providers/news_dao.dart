@@ -45,5 +45,34 @@ class NewsDAO with ChangeNotifier {
   }
 
   //function để lấy list news từ Database
-  void fetchNews() {}
+  void fetchNews() async {
+    const url =
+        'https://project-mobifone-default-rtdb.firebaseio.com/news.json';
+
+    final response = await http.get(Uri.parse(url));
+
+    final List<News> loadedNews = [];
+
+    //extractedData có thể null nếu ko có dữ liệu trên server
+    final Map<String, dynamic>? extractedData =
+        json.decode(response.body) as Map<String, dynamic>?;
+
+    //nếu null thì khỏi add vào list ở local làm gì, đỡ lỗi
+    if (extractedData == null) {
+      return;
+    }
+
+    //Lấy ra list news
+    extractedData.forEach((key, newsData) {
+      loadedNews.add(News(
+        title: newsData['title'],
+        content: newsData['content'],
+        imageUrl: newsData['imageUr'],
+        publishedAt: DateTime.parse(newsData['publishedAt']),
+      ));
+    });
+
+    //gán vào list ở local
+    _news = loadedNews.toList();
+  }
 }
