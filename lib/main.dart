@@ -32,6 +32,10 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Mobifone App",
+        //theme
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
         //Chuyển tạm sang News Screen để Design đã
         home: NewsListScreen(),
         routes: {

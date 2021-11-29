@@ -16,7 +16,7 @@ class ScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       //Logo
       title: Image.asset('assets/images/appBar_logo.png', fit: BoxFit.cover),
-      backgroundColor: const Color.fromARGB(255, 26, 26, 38),
+      backgroundColor: Colors.blue.shade100,
       //3 nút trên AppBar
       actions: [
         IconButton(
