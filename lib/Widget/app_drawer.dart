@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:project_mobifone_mobile/Providers/user_dao.dart';
+import 'package:project_mobifone_mobile/Screens/lookup_display_screen.dart';
+import 'package:project_mobifone_mobile/Screens/news_list_screen.dart';
 
 import 'package:provider/provider.dart';
+import '../Screens/home_screen.dart';
 
 //Drawer để chuyển giữa các page
 class AppDrawer extends StatelessWidget {
@@ -19,37 +22,37 @@ class AppDrawer extends StatelessWidget {
             nút quay lại sẽ ko hoạt động đc ở đây*/
           ),
 
-          // const Divider(), //1 cái dòng như <hr>
-          // ListTile(
-          //   //Ấn vào cái này để quay về Home Page
-          //   leading: const Icon(Icons.shop),
-          //   title: const Text('Shop'),
-          //   onTap: () {
-          //     Navigator.of(context).pushReplacementNamed('/');
-          //   },
-          // ),
+          const Divider(), //1 cái dòng như <hr>
+          ListTile(
+            //Ấn vào cái này để quay về Home Page
+            leading: const Icon(Icons.home),
+            title: const Text('Home'),
+            onTap: () {
+              Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+            },
+          ),
 
-          // const Divider(),
-          // ListTile(
-          //   //Ấn vào cái này để đến Order Screen
-          //   leading: const Icon(Icons.payment),
-          //   title: const Text('Orders'),
-          //   onTap: () {
-          //     Navigator.of(context)
-          //         .pushReplacementNamed(OrdersScreen.routeName);
-          //   },
-          // ),
+          const Divider(),
+          ListTile(
+            //Ấn vào cái này để đến Order Screen
+            leading: const Icon(Icons.search),
+            title: const Text('Look Up - Display'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(LookUpDisplayScreen.routeName);
+            },
+          ),
 
-          // const Divider(),
-          // ListTile(
-          //   //Ấn vào cái này để đến Manage Product Screen
-          //   leading: const Icon(Icons.edit),
-          //   title: const Text('Manage Products'),
-          //   onTap: () {
-          //     Navigator.of(context)
-          //         .pushReplacementNamed(UserProductsScreen.routeName);
-          //   },
-          // ),
+          const Divider(),
+          ListTile(
+            //Ấn vào cái này để đến Manage Product Screen
+            leading: const Icon(Icons.now_wallpaper),
+            title: const Text('News'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(NewsListScreen.routeName);
+            },
+          ),
 
           const Divider(),
           ListTile(

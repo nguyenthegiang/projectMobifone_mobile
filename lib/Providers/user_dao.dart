@@ -23,7 +23,8 @@ class UserDAO with ChangeNotifier {
   Rule: nếu có token và token chưa expire thì là login rồi */
   bool get isAuth {
     //nếu getter token ko null thì return true
-    return _token != null;
+    //gọi đến cái getter token dưới kia
+    return token != null;
   }
 
   //kiểm tra xem có token ko và token đó phải chưa expire

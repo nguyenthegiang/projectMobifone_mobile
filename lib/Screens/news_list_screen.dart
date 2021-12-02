@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../Providers/news_dao.dart';
 import '../Widget/news_screen_widgets/news_list.dart';
 import '../Widget/screen_appbar.dart';
+import '../Widget/app_drawer.dart';
 
 //Màn hình hiển thị tra cứu
 class NewsListScreen extends StatefulWidget {
@@ -50,6 +51,7 @@ class _NewsListScreenState extends State<NewsListScreen> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 237, 237, 247),
       appBar: ScreenAppBar(),
+      drawer: AppDrawer(),
       //Nếu đang load thì hiển thị loading spinner
       body: _isLoading
           ? Center(

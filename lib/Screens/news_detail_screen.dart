@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 
 import '../Widget/screen_appbar.dart';
 import '../../Providers/news.dart';
+import '../Widget/app_drawer.dart';
 
 class NewsDetailScreen extends StatelessWidget {
   const NewsDetailScreen({Key? key}) : super(key: key);
@@ -19,6 +20,7 @@ class NewsDetailScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 237, 237, 247),
       appBar: ScreenAppBar(),
+      drawer: AppDrawer(),
       //Làm cho nó Scrollable
       body: Column(
         children: [

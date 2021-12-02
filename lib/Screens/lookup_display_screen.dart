@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../Widget/lookup_display_screen_widgets/input_field.dart';
 import '../Widget/lookup_display_screen_widgets/result_field.dart';
 import '../Widget/screen_appbar.dart';
+import '../Widget/app_drawer.dart';
 
 //Màn hình hiển thị tra cứu
 class LookUpDisplayScreen extends StatelessWidget {
@@ -16,6 +17,7 @@ class LookUpDisplayScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 237, 237, 247),
       appBar: ScreenAppBar(),
+      drawer: AppDrawer(),
       //Làm cho nó Scrollable
       body: SingleChildScrollView(
         child: Padding(
