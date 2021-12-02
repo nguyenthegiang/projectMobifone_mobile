@@ -21,6 +21,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 237, 237, 247),
       appBar: ScreenAppBar(),
+      drawer: AppDrawer(),
       //Làm cho nó Scrollable
       body: SingleChildScrollView(
         child: Column(
@@ -36,7 +37,6 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      drawer: AppDrawer(),
     );
   }
 }

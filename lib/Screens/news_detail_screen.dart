@@ -10,7 +10,7 @@ class NewsDetailScreen extends StatelessWidget {
   const NewsDetailScreen({Key? key}) : super(key: key);
 
   //Tạo Route cho Navigation
-  static const routeName = '/news';
+  static const routeName = '/news-detail';
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,6 @@ class NewsDetailScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 237, 237, 247),
       appBar: ScreenAppBar(),
-      drawer: AppDrawer(),
       //Làm cho nó Scrollable
       body: Column(
         children: [
