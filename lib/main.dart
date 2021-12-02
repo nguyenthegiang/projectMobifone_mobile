@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         //Chuyển tạm sang News Screen để Design đã
-        home: NewsListScreen(),
+        home: LoginScreen(),
         routes: {
           HomeScreen.routeName: (ctx) => HomeScreen(),
           LookUpDisplayScreen.routeName: (ctx) => LookUpDisplayScreen(),

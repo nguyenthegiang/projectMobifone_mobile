@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_mobifone_mobile/Providers/user_dao.dart';
+import 'package:project_mobifone_mobile/models/http_exception.dart';
 import 'package:provider/provider.dart';
 
 import '../Providers/user.dart';
@@ -24,6 +25,26 @@ class _LoginScreenState extends State<LoginScreen> {
   Nếu đang Load thì hiển thị màn hình loading */
   var _isLoading = false;
 
+  //function để show cái error message nếu có khi login / signup
+  void _showErrorDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text('An Error Occurred!'),
+        content: Text(message),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(ctx).pop();
+              //ấn nút này thì đóng dialog
+            },
+            child: Text('Okay'),
+          ),
+        ],
+      ),
+    );
+  }
+
   //Method Submit Form
   Future<void> _saveForm() async {
     //Validate
@@ -47,24 +68,14 @@ class _LoginScreenState extends State<LoginScreen> {
 
       //Navigate về home khi log in thành công
       Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+    } on HttpException catch (error) {
+      //nếu là HttpException -> lỗi server -> xử lý riêng
+      _showErrorDialog(error.toString());
     } catch (error) {
-      //Nếu xảy ra lỗi (trong quá trình kết nối vs Server) thì hiển thị thông báo
-      await showDialog<void>(
-        context: context,
-        builder: (ctx) => AlertDialog(
-          title: const Text('An error occurred!'),
-          content: const Text('Something went wrong!'),
-          actions: [
-            TextButton(
-              onPressed: () {
-                //Ấn nút để đóng Dialog
-                Navigator.of(ctx).pop();
-              },
-              child: const Text('Okay'),
-            ),
-          ],
-        ),
-      );
+      //còn nếu lỗi khác thì thôi, xử lý chung 1 kiểu (VD như mất kết nối internet)
+      const errorMessage =
+          'Could not authenticate you. Please try again later.';
+      _showErrorDialog(errorMessage);
     }
 
     //Kết thúc trạng thái Loading
