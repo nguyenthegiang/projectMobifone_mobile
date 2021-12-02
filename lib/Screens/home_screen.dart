@@ -7,6 +7,7 @@ import '../Widget/home_screen_widgets/card_4.dart';
 import '../Widget/home_screen_widgets/card_3.dart';
 import '../Widget/home_screen_widgets/card_2.dart';
 import '../Widget/home_screen_widgets/card_1.dart';
+import '../Widget/app_drawer.dart';
 
 //Home Page
 class HomeScreen extends StatelessWidget {
@@ -35,6 +36,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+      drawer: AppDrawer(),
     );
   }
 }

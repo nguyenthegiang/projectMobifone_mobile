@@ -9,6 +9,12 @@ import 'news.dart';
 /* Class để thực hiện các chức năng với Server của News Class */
 class NewsDAO with ChangeNotifier {
   List<News> _news = [];
+  //String để lưu giữ Token khi Authentication
+  final String? authToken;
+
+  /*nhận token qua constructor 
+  (truyền vào trong main.dart ở Provider khi khởi tạo Object)*/
+  NewsDAO(this.authToken, this._news);
 
   //Getter
   List<News> get items {
@@ -29,8 +35,8 @@ class NewsDAO with ChangeNotifier {
 
   //function để add 1 news lên DB
   Future<void> addNews(News news) async {
-    const url =
-        'https://project-mobifone-default-rtdb.firebaseio.com/news.json';
+    final url =
+        'https://project-mobifone-default-rtdb.firebaseio.com/news.json?auth=$authToken';
 
     //add to DB
     final response = await http.post(
@@ -51,8 +57,8 @@ class NewsDAO with ChangeNotifier {
 
   //function để lấy list news từ Database
   Future<void> fetchNews() async {
-    const url =
-        'https://project-mobifone-default-rtdb.firebaseio.com/news.json';
+    final url =
+        'https://project-mobifone-default-rtdb.firebaseio.com/news.json?auth=$authToken';
 
     final response = await http.get(Uri.parse(url));
 
