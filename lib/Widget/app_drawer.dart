@@ -16,7 +16,10 @@ class AppDrawer extends StatelessWidget {
       child: Column(
         children: [
           AppBar(
-            title: const Text('Hello Friend!'),
+            title: Text(
+              'Hello Friend!',
+              style: Theme.of(context).textTheme.headline6,
+            ),
             automaticallyImplyLeading: false,
             /*Dòng này để nó ko bao h thêm cái nút quay lại (vì nó là AppBar) vì
             nút quay lại sẽ ko hoạt động đc ở đây*/
