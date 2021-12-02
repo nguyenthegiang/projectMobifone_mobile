@@ -4,3 +4,6 @@
     -   Add Authentication: Login, Logout, Auto-Login, Auto-Logout
     -   Add Navigation between Pages
 
+### Version 2.1
+    -   Change Style
+    -   Fix Bugs
