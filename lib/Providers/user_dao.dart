@@ -45,72 +45,70 @@ class UserDAO with ChangeNotifier {
   API Key: Web API key - https://console.firebase.google.com/u/0/project/project-mobifone/settings/general
    */
   Future<void> login(User user) async {
-    const url =
-        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBqpARvsGMMzUZ0fEYS2X--Sd98cJWbqMw';
+    const url = 'http://mobi.test.bcdcnt.net/check';
     try {
       final response = await http.post(
         Uri.parse(url),
         body: json.encode({
-          'email': user.username,
+          'username': user.username,
           'password': user.password,
-          'returnSecureToken': true,
+          'remember': 1,
         }),
-        // headers: {
-        //   'Content-Type': 'application/json',
-        //   'Charset': 'utf-8',
-        // },
+        headers: {
+          'Content-Type': 'application/json',
+          'Charset': 'utf-8',
+        },
       );
 
-      // /*Nhận về và phân tích response ở đây, nếu login ko thành công thì cx
-      // throw error*/
-      // if (json.decode(response.body)['answer'].toString() == 'FAILED') {
-      //   throw Exception();
+      /*Nhận về và phân tích response ở đây, nếu login ko thành công thì cx
+      throw error*/
+      print(json.decode(response.body));
+
+      // /* Chuyển sang Firebase */
+      // final responseData = json.decode(response.body);
+      // if (responseData['error'] != null) {
+      //   /*nếu có key 'error' trong Map (khi có lỗi sẽ có) thì throw ra cái
+      //   exception mà mình tạo ra*/
+      //   throw HttpException(responseData['error']['message']);
+      //   //throw ra cái message của Firebase -> xử lý bên auth_screen
       // }
 
-      /* Chuyển sang Firebase */
-      final responseData = json.decode(response.body);
-      if (responseData['error'] != null) {
-        /*nếu có key 'error' trong Map (khi có lỗi sẽ có) thì throw ra cái 
-        exception mà mình tạo ra*/
-        throw HttpException(responseData['error']['message']);
-        //throw ra cái message của Firebase -> xử lý bên auth_screen
-      }
+      // //set token và các thứ để check chuyển page sang home
+      // _token = responseData['idToken'];
+      // _userId = responseData['localId'];
+      // //response chỉ có số giây (string) cho đến lúc expire thôi -> phải tự tính
+      // _expiryDate = DateTime.now().add(
+      //   Duration(
+      //     seconds: int.parse(
+      //       responseData['expiresIn'],
+      //     ),
+      //   ),
+      // );
 
-      //set token và các thứ để check chuyển page sang home
-      _token = responseData['idToken'];
-      _userId = responseData['localId'];
-      //response chỉ có số giây (string) cho đến lúc expire thôi -> phải tự tính
-      _expiryDate = DateTime.now().add(
-        Duration(
-          seconds: int.parse(
-            responseData['expiresIn'],
-          ),
-        ),
-      );
+      // /* gọi đến autoLogout() để nó bắt đầu tính Timer */
+      // _autoLogout();
 
-      /* gọi đến autoLogout() để nó bắt đầu tính Timer */
-      _autoLogout();
+      // notifyListeners();
 
-      notifyListeners();
+      // /* Lưu trữ Token vào SharedPreferences cho tính năng auto Login;
+      // cái này có dùng Future nên phải cho vào async (ở đây có sẵn r) */
 
-      /* Lưu trữ Token vào SharedPreferences cho tính năng auto Login;
-      cái này có dùng Future nên phải cho vào async (ở đây có sẵn r) */
-
-      /*truy cập SharedPreferences để dùng (cái này return về Future, mà sau đó 
-      sẽ return về SharedPreferences) -> dùng cái này để truy cập vào device storage*/
-      final prefs = await SharedPreferences.getInstance();
-      /* giờ có thể dùng prefs để read/write data vào storage:
-      write: set() method, có thể write string, boolean,...
-      nếu có 1 map thì có thể convert về json rồi write vì json sẽ đc convert
-      thành String*/
-      final userData = json.encode({
-        'token': _token,
-        'userId': _userId,
-        'expiryDate': _expiryDate!.toIso8601String(),
-      });
-      //lưu trữ theo kiểu key-data
-      prefs.setString('userData', userData);
+      // /*truy cập SharedPreferences để dùng (cái này return về Future, mà sau đó
+      // sẽ return về SharedPreferences) -> dùng cái này để truy cập vào device storage*/
+      // final prefs = await SharedPreferences.getInstance();
+      // /* giờ có thể dùng prefs để read/write data vào storage:
+      // write: set() method, có thể write string, boolean,...
+      // nếu có 1 map thì có thể convert về json rồi write vì json sẽ đc convert
+      // thành String*/
+      // final userData = json.encode({
+      //   'token': _token,
+      //   'userId': _userId,
+      //   'expiryDate': _expiryDate!.toIso8601String(),
+      // });
+      // //lưu trữ theo kiểu key-data
+      // prefs.setString('userData', userData);
     } catch (error) {
+      print(error);
       rethrow;
     }
   }
