@@ -24,6 +24,8 @@ class _LoginScreenState extends State<LoginScreen> {
   /* Biến để lưu trữ xem chương trình có đang load ko (khi gửi http request);
   Nếu đang Load thì hiển thị màn hình loading */
   var _isLoading = false;
+  // Biến để lưu giữ giá trị của phương thức đăng nhập
+  var loginWithEmail = false;
 
   //function để show cái error message nếu có khi login / signup
   void _showErrorDialog(String message) {
@@ -64,7 +66,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
     //Login bằng Provider
     try {
-      await Provider.of<UserDAO>(context, listen: false).login(_user);
+      await Provider.of<UserDAO>(context, listen: false)
+          .login(_user, loginWithEmail);
 
       //Navigate về home khi log in thành công
       Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
@@ -288,6 +291,20 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                 ),
+                                //Checkbox: Phương thức đăng nhập
+                                CheckboxListTile(
+                                  checkColor: Colors.black,
+                                  activeColor: Colors.white,
+                                  title: const Text("Đăng nhập bằng Email"),
+                                  value: loginWithEmail,
+                                  onChanged: (bool? newValue) {
+                                    setState(() {
+                                      loginWithEmail = newValue!;
+                                    });
+                                  },
+                                  controlAffinity: ListTileControlAffinity
+                                      .leading, //  <-- leading Checkbox
+                                )
                               ],
                             ),
                           ),

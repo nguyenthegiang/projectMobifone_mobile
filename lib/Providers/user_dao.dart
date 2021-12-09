@@ -44,7 +44,7 @@ class UserDAO with ChangeNotifier {
   Chuyển Server sang Firebase -> online -> để có thể dùng App ở mọi nơi;
   API Key: Web API key - https://console.firebase.google.com/u/0/project/project-mobifone/settings/general
    */
-  Future<void> login(User user) async {
+  Future<void> login(User user, bool loginWithEmail) async {
     const url = 'http://mobi.test.bcdcnt.net/check';
     try {
       final response = await http.post(
@@ -52,7 +52,8 @@ class UserDAO with ChangeNotifier {
         body: json.encode({
           'username': user.username,
           'password': user.password,
-          'remember': 1,
+          //Nếu user chọn login = email thì remember = 1
+          'remember': loginWithEmail ? 1 : 0,
         }),
         headers: {
           'Content-Type': 'application/json',
