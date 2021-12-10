@@ -17,7 +17,7 @@ class AppDrawer extends StatelessWidget {
         children: [
           AppBar(
             title: Text(
-              'Hello Friend!',
+              'MOBIFONE',
               style: Theme.of(context).textTheme.headline6,
             ),
             automaticallyImplyLeading: false,
@@ -39,7 +39,7 @@ class AppDrawer extends StatelessWidget {
           ListTile(
             //Ấn vào cái này để đến Order Screen
             leading: const Icon(Icons.search),
-            title: const Text('Look Up - Display'),
+            title: const Text('Màn hình tra cứu'),
             onTap: () {
               Navigator.of(context)
                   .pushReplacementNamed(LookUpDisplayScreen.routeName);
