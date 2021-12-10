@@ -30,13 +30,17 @@ class LookUpDAO with ChangeNotifier {
 
       //Lấy dữ liệu trả về
       try {
-        /*cho vào try catch để nếu trg hợp ko có data (success = false) thì nó 
+        /*cho vào try catch để nếu trg hợp ko có data thì nó 
         cx ko throw lỗi*/
         phoneInfo = json.decode(response.body)['data'][0];
+        //nếu lấy data thành công thì isSuccess = true
+        isSuccess = true;
       } catch (exception) {
+        //nếu exception -> data null -> isSuccess = false
+        //cái này để điều chỉnh UI tương ứng
+        isSuccess = false;
         print(exception);
       }
-      isSuccess = json.decode(response.body)['success'];
     } catch (error) {
       print(error);
       rethrow;
