@@ -22,8 +22,14 @@ class _ResultFiedState extends State<ResultFied> {
           ? const Card(
               elevation: 0,
               child: Center(
-                child: Text('SỐ ĐIỆN THOẠI KHÔNG CÓ TRONG DANH SÁCH'),
-              ),
+                  child: Text(
+                'SỐ ĐIỆN THOẠI KHÔNG CÓ TRONG DANH SÁCH',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.red,
+                  fontWeight: FontWeight.w500,
+                ),
+              )),
             )
           : Card(
               elevation: 0,
@@ -71,7 +77,7 @@ class _ResultFiedState extends State<ResultFied> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            'Bùi Văn Quỳnh',
+                            lookUpProvider.phoneInfo['NAME'],
                             style: TextStyle(
                               fontSize: 15,
                             ),
@@ -91,7 +97,7 @@ class _ResultFiedState extends State<ResultFied> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            lookUpProvider.phoneInfo.toString(),
+                            lookUpProvider.phoneInfo['GOICUOC_HT'] ?? '',
                             style: TextStyle(
                               fontSize: 15,
                             ),
@@ -131,7 +137,7 @@ class _ResultFiedState extends State<ResultFied> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            '   ',
+                            lookUpProvider.phoneInfo['DIACHI_TRAM_VLR'],
                             style: TextStyle(
                               fontSize: 15,
                             ),
@@ -142,7 +148,7 @@ class _ResultFiedState extends State<ResultFied> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            'Lưu lượng data 3 tháng gần nhất',
+                            'Doanh thu thông tin trung bình 2 tháng',
                             style: TextStyle(
                               fontSize: 15,
                             ),
@@ -151,7 +157,7 @@ class _ResultFiedState extends State<ResultFied> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            '50MB',
+                            lookUpProvider.phoneInfo['DTTT_TB_2THANG'],
                             style: TextStyle(
                               fontSize: 15,
                             ),
@@ -253,7 +259,7 @@ class _ResultFiedState extends State<ResultFied> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            '   ',
+                            lookUpProvider.phoneInfo['DTTT_TB_2THANG'],
                             style: TextStyle(
                               fontSize: 15,
                             ),
@@ -287,7 +293,7 @@ class _ResultFiedState extends State<ResultFied> {
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              '\n',
+                              lookUpProvider.phoneInfo['CACGOI_DUOC_DK'],
                               style: TextStyle(
                                 fontSize: 15,
                               ),
