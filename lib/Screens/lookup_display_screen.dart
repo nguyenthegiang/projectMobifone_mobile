@@ -6,12 +6,17 @@ import '../Widget/screen_appbar.dart';
 import '../Widget/app_drawer.dart';
 
 //Màn hình hiển thị tra cứu
-class LookUpDisplayScreen extends StatelessWidget {
+class LookUpDisplayScreen extends StatefulWidget {
   const LookUpDisplayScreen({Key? key}) : super(key: key);
 
   //Tạo Route cho Navigation
   static const routeName = '/lookup-display';
 
+  @override
+  State<LookUpDisplayScreen> createState() => _LookUpDisplayScreenState();
+}
+
+class _LookUpDisplayScreenState extends State<LookUpDisplayScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

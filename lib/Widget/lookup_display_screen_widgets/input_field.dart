@@ -21,6 +21,26 @@ class _InputFieldState extends State<InputField> {
   Nếu đang Load thì hiển thị màn hình loading */
   var _isLoading = false;
 
+  //function để show cái error message nếu có khi search
+  void _showErrorDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('An Error Occurred!'),
+        content: Text(message),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(ctx).pop();
+              //ấn nút này thì đóng dialog
+            },
+            child: const Text('Okay'),
+          ),
+        ],
+      ),
+    );
+  }
+
   //Method Submit Form
   Future<void> _saveForm() async {
     //Validate
@@ -41,17 +61,13 @@ class _InputFieldState extends State<InputField> {
     //Login bằng Provider
     try {
       await Provider.of<LookUpDAO>(context, listen: false).lookUp(phoneNum);
-
-      //Navigate về home khi log in thành công
-      //Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
     } on HttpException catch (error) {
       //nếu là HttpException -> lỗi server -> xử lý riêng
-      //_showErrorDialog(error.toString());
+      _showErrorDialog(error.toString());
     } catch (error) {
       //còn nếu lỗi khác thì thôi, xử lý chung 1 kiểu (VD như mất kết nối internet)
-      const errorMessage =
-          'Could not authenticate you. Please try again later.';
-      //_showErrorDialog(errorMessage);
+      const errorMessage = 'Something went wrong. Please try again later.';
+      _showErrorDialog(errorMessage);
     }
 
     //Kết thúc trạng thái Loading
@@ -120,24 +136,30 @@ class _InputFieldState extends State<InputField> {
                   Container(
                     margin: EdgeInsets.only(top: 10),
                     //Submit button
-                    child: ElevatedButton(
-                      child: Text(
-                        'Tra cứu',
-                        style: TextStyle(fontSize: 17),
-                      ),
-                      //ấn nút là submit form
-                      onPressed: _saveForm,
-                      style: ElevatedButton.styleFrom(
-                        primary: Color.fromARGB(255, 255, 168, 0),
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 20,
-                          vertical: 12,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32),
-                        ),
-                      ),
-                    ),
+                    /*Nếu đang Loading thì hiển thị cái spinner để ng dùng ko 
+                    bấm nhiều lần*/
+                    child: _isLoading
+                        ? Center(
+                            child: CircularProgressIndicator(),
+                          )
+                        : ElevatedButton(
+                            child: Text(
+                              'Tra cứu',
+                              style: TextStyle(fontSize: 17),
+                            ),
+                            //ấn nút là submit form
+                            onPressed: _saveForm,
+                            style: ElevatedButton.styleFrom(
+                              primary: Color.fromARGB(255, 255, 168, 0),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 20,
+                                vertical: 12,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(32),
+                              ),
+                            ),
+                          ),
                   ),
                 ],
               ),
