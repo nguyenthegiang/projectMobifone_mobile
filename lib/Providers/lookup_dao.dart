@@ -13,8 +13,7 @@ class LookUpDAO with ChangeNotifier {
       final response = await http.post(
         Uri.parse(url),
         body: json.encode({
-          'sdt',
-          phoneNum,
+          'sdt': phoneNum,
         }),
         headers: {
           'Content-Type': 'application/json',

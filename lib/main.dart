@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:project_mobifone_mobile/Providers/lookup_dao.dart';
 import 'package:project_mobifone_mobile/Providers/news_dao.dart';
 
 import 'package:provider/provider.dart';
@@ -43,6 +44,9 @@ class MyApp extends StatelessWidget {
             nếu null thì return về list rỗng thôi */
             previousNews == null ? [] : previousNews.items,
           ),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => LookUpDAO(),
         ),
       ],
       child: Consumer<UserDAO>(
