@@ -27,7 +27,7 @@ class LookUpDAO with ChangeNotifier {
       );
 
       //Lấy dữ liệu trả về
-      phoneInfo = json.decode(response.body)['data'][0];
+      phoneInfo = json.decode(response.body)['data'][0] ?? [];
       isSuccess = json.decode(response.body)['success'];
     } catch (error) {
       print(error);

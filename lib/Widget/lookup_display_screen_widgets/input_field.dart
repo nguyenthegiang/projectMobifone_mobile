@@ -61,11 +61,8 @@ class _InputFieldState extends State<InputField> {
     //Login bằng Provider
     try {
       await Provider.of<LookUpDAO>(context, listen: false).lookUp(phoneNum);
-    } on HttpException catch (error) {
-      //nếu là HttpException -> lỗi server -> xử lý riêng
-      _showErrorDialog(error.toString());
     } catch (error) {
-      //còn nếu lỗi khác thì thôi, xử lý chung 1 kiểu (VD như mất kết nối internet)
+      //xử lý lỗi
       const errorMessage = 'Something went wrong. Please try again later.';
       _showErrorDialog(errorMessage);
     }

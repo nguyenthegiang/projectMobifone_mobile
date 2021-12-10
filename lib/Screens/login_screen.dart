@@ -292,18 +292,23 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                 ),
                                 //Checkbox: Phương thức đăng nhập
-                                CheckboxListTile(
-                                  checkColor: Colors.black,
-                                  activeColor: Colors.white,
-                                  title: const Text("Đăng nhập bằng Email"),
-                                  value: loginWithEmail,
-                                  onChanged: (bool? newValue) {
-                                    setState(() {
-                                      loginWithEmail = newValue!;
-                                    });
-                                  },
-                                  controlAffinity: ListTileControlAffinity
-                                      .leading, //  <-- leading Checkbox
+                                Container(
+                                  width: 250,
+                                  child: Center(
+                                    child: CheckboxListTile(
+                                      checkColor: Colors.black,
+                                      activeColor: Colors.white,
+                                      title: const Text("Đăng nhập bằng Email"),
+                                      value: loginWithEmail,
+                                      onChanged: (bool? newValue) {
+                                        setState(() {
+                                          loginWithEmail = newValue!;
+                                        });
+                                      },
+                                      controlAffinity: ListTileControlAffinity
+                                          .leading, //  <-- leading Checkbox
+                                    ),
+                                  ),
                                 )
                               ],
                             ),
