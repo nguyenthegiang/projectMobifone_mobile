@@ -26,8 +26,16 @@ class LookUpDAO with ChangeNotifier {
         },
       );
 
+      print(json.decode(response.body));
+
       //Lấy dữ liệu trả về
-      phoneInfo = json.decode(response.body)['data'][0] ?? [];
+      try {
+        /*cho vào try catch để nếu trg hợp ko có data (success = false) thì nó 
+        cx ko throw lỗi*/
+        phoneInfo = json.decode(response.body)['data'][0];
+      } catch (exception) {
+        print(exception);
+      }
       isSuccess = json.decode(response.body)['success'];
     } catch (error) {
       print(error);

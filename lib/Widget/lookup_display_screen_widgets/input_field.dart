@@ -125,6 +125,9 @@ class _InputFieldState extends State<InputField> {
                           if (value!.isEmpty) {
                             return 'Please provide a value.';
                           }
+                          if (value.length != 9) {
+                            return 'There must be exact 9 numbers';
+                          }
                           return null;
                         },
                       ),
