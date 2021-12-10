@@ -7,3 +7,6 @@
 ### Version 2.1
     -   Change Style
     -   Fix Bugs
+
+### Version 2.2
+    -   Add Back-End for LookUpDisplay function
