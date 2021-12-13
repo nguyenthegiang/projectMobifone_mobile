@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:project_mobifone_mobile/Providers/lookup_dao.dart';
-import 'package:project_mobifone_mobile/Providers/news_dao.dart';
 
 import 'package:provider/provider.dart';
 
@@ -11,6 +9,9 @@ import './Providers/user_dao.dart';
 import './Screens/home_screen.dart';
 import './Screens/login_screen.dart';
 import './Screens/lookup_display_screen.dart';
+import '../Providers/home_screen_dao.dart';
+import '../Providers/lookup_dao.dart';
+import '../Providers/news_dao.dart';
 
 void main() {
   //Chỉ cho phép hiển thị dọc
@@ -47,6 +48,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (ctx) => LookUpDAO(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => HomeScreenDAO(),
         ),
       ],
       child: Consumer<UserDAO>(
