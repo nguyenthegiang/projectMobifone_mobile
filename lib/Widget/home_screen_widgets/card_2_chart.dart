@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+
+import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+
+import '../../Providers/home_screen_dao.dart';
 
 //Tương tự Card4Chart
 class Card2Chart extends StatefulWidget {
@@ -14,12 +18,36 @@ class _Card2ChartState extends State<Card2Chart> {
   late List<ChartData> _chartData;
   //tooltip
   late TooltipBehavior _tooltipBehavior;
+  //Biến để cho didChangeDependencies() chỉ chạy 1 lần thôi
+  var _isInit = true;
+  //biến để làm loading spinner
+  var _isLoading = false;
 
   @override
   void initState() {
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    /* Khi mới vào thì load List Data cho Chart từ Web Server về*/
+    if (_isInit) {
+      setState(() {
+        //chuyển màn hình sang loading
+        _isLoading = true;
+      });
+      Provider.of<HomeScreenDAO>(context).getcard2ChartData().then((_) {
+        setState(() {
+          //chuyển màn hình lại bình thường sau khi lấy data xong
+          _isLoading = false;
+        });
+      });
+    }
+    _isInit = false;
+
     _chartData = getChartData();
     _tooltipBehavior = TooltipBehavior(enable: true);
-    super.initState();
+    super.didChangeDependencies();
   }
 
   @override
