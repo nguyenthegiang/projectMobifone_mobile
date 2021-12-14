@@ -19,8 +19,8 @@ class HomeScreenDAO with ChangeNotifier {
       final response = await http.get(Uri.parse(url));
       //Decode data từ JSON sang Map
       //có thể null nếu server ko có dữ liệu
-      final List<Map<String, String>>? extractedData =
-          json.decode(response.body) as List<Map<String, String>>?;
+      final List<Map<String, double>>? extractedData =
+          json.decode(response.body) as List<Map<String, double>>?;
 
       //null thì return luôn
       if (extractedData == null) {
@@ -32,7 +32,7 @@ class HomeScreenDAO with ChangeNotifier {
       //Với mỗi phần tử của Map thì add vào list data
       for (var element in extractedData) {
         loadedData.add(Card3ChartData(
-            element['PROVINCE_CODE'] as String, element['DTTKC'] as String));
+            element['PROVINCE_CODE'] as String, element['DTTKC'] as double));
       }
 
       //gán vào attribute của class
