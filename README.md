@@ -10,3 +10,6 @@
 
 ### Version 2.2
     -   Add Back-End for LookUpDisplay function
+
+### Version 2.3
+    -   Add Back-End for Home Screen
