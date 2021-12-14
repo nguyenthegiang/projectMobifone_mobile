@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/http_exception.dart';
-import './user.dart';
+import '../models/user.dart';
 
 /* Class để thực hiện các chức năng với Server của User Class */
 class UserDAO with ChangeNotifier {

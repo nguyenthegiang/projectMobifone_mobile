@@ -38,6 +38,8 @@ class HomeScreenDAO with ChangeNotifier {
       //gán vào attribute của class
       card3ChartData = loadedData;
 
+      print(card3ChartData);
+
       notifyListeners();
     } catch (error) {
       print(error);

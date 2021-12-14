@@ -3,7 +3,7 @@ import 'package:project_mobifone_mobile/Providers/user_dao.dart';
 import 'package:project_mobifone_mobile/models/http_exception.dart';
 import 'package:provider/provider.dart';
 
-import '../Providers/user.dart';
+import '../models/user.dart';
 import './home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
