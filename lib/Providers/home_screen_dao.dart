@@ -10,7 +10,7 @@ class HomeScreenDAO with ChangeNotifier {
   //Biến để lưu giữ data của chart
   List<Card3ChartData> card3ChartData = [];
 
-  //function để gọi API lấy Data cho Chart
+  //function để gọi API lấy Data cho Chart của Card3
   Future<void> getcard3ChartData() async {
     const url = 'http://mobi.test.bcdcnt.net/dashboard_dttkc';
 
