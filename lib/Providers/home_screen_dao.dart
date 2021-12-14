@@ -27,14 +27,17 @@ class HomeScreenDAO with ChangeNotifier {
       final List<Card3ChartData> loadedData = [];
       //Với mỗi phần tử của Map thì add vào list data
       for (var element in extractedData) {
-        loadedData.add(Card3ChartData(element['PROVINCE_CODE'] as String,
-            double.parse(element['DTTKC'])));
+        loadedData.add(Card3ChartData(
+            element['PROVINCE_CODE'] as String, int.parse(element['DTTKC'])));
       }
 
       //gán vào attribute của class
       card3ChartData = loadedData;
 
-      print(card3ChartData);
+      //print thử ra console
+      card3ChartData.forEach((element) {
+        print(element.DTTKC);
+      });
 
       notifyListeners();
     } catch (error) {

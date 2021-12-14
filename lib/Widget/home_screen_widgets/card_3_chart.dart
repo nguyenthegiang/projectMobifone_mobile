@@ -96,7 +96,15 @@ class _Card3ChartState extends State<Card3Chart> {
                     //value của thuộc tính
                     yValueMapper: (ChartData data, _) => data.dataValue,
                     //thêm label cho các data
-                    dataLabelSettings: DataLabelSettings(isVisible: true),
+                    dataLabelSettings: DataLabelSettings(
+                      isVisible: true,
+                      // labelPosition: ChartDataLabelPosition.outside,
+                      // // Renders background rectangle and fills it with series color
+                      // useSeriesColor: true,
+                    ),
+                    //hiển thị của data
+                    dataLabelMapper: (ChartData data, _) =>
+                        data.getDisplayDataValue(),
                     //cho phép hiển thị tooltip
                     enableTooltip: true,
                   )
@@ -125,7 +133,37 @@ class _Card3ChartState extends State<Card3Chart> {
 //Class chứa Data cho Chart
 class ChartData {
   final String dataName;
-  final double dataValue;
+  final int dataValue;
 
   ChartData(this.dataName, this.dataValue);
+
+  //function để hiển thị dataValue với dấu chấm để rõ ràng hơn
+  String getDisplayDataValue() {
+    String result = "";
+    int value = dataValue;
+    int addDot = 0;
+
+    while (value > 0) {
+      int surplus = value % 10;
+      result += surplus.toString();
+      addDot++;
+      if (addDot % 3 == 0) {
+        result += ".";
+      }
+
+      //chia lấy số int (nếu chia bình thg nó sẽ return double)
+      value = value ~/ 10;
+    }
+
+    //reverse string
+    //https://stackoverflow.com/questions/21521729/how-do-i-reverse-a-string-in-dart
+    result = String.fromCharCodes(result.runes.toList().reversed);
+    //delete redundant dot
+    if (result.startsWith('.')) {
+      result = result.substring(1);
+    }
+
+    print(result);
+    return result;
+  }
 }
