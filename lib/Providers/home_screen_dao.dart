@@ -12,27 +12,23 @@ class HomeScreenDAO with ChangeNotifier {
 
   //function để gọi API lấy Data cho Chart
   Future<void> getcard3ChartData() async {
-    final url = 'http://mobi.test.bcdcnt.net/dashboard_dttkc';
+    const url = 'http://mobi.test.bcdcnt.net/dashboard_dttkc';
 
     //get request để lấy data và gán vào biến
     try {
       final response = await http.get(Uri.parse(url));
-      //Decode data từ JSON sang Map
-      //có thể null nếu server ko có dữ liệu
-      final List<Map<String, double>>? extractedData =
-          json.decode(response.body) as List<Map<String, double>>?;
-
-      //null thì return luôn
-      if (extractedData == null) {
-        return;
-      }
+      //Decode data từ JSON sang List Map
+      //https://stackoverflow.com/questions/60285825/dart-cannot-convert-listdynamic-to-listmapstring-dynamic-despite-cast
+      final extractedData = (jsonDecode(response.body)["data"] as List)
+          .map((e) => e as Map<String, dynamic>)
+          .toList();
 
       //list chứa data lấy về
       final List<Card3ChartData> loadedData = [];
       //Với mỗi phần tử của Map thì add vào list data
       for (var element in extractedData) {
-        loadedData.add(Card3ChartData(
-            element['PROVINCE_CODE'] as String, element['DTTKC'] as double));
+        loadedData.add(Card3ChartData(element['PROVINCE_CODE'] as String,
+            double.parse(element['DTTKC'])));
       }
 
       //gán vào attribute của class

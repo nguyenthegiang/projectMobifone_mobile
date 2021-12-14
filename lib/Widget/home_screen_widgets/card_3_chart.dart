@@ -27,12 +27,6 @@ class _Card3ChartState extends State<Card3Chart> {
 
   @override
   void initState() {
-    //tạo data source
-    _chartData = getChartData();
-    //tạo tooltip
-    _tooltipBehavior = TooltipBehavior(
-      enable: true,
-    );
     super.initState();
   }
 
@@ -52,6 +46,13 @@ class _Card3ChartState extends State<Card3Chart> {
       });
     }
     _isInit = false;
+
+    //tạo data source
+    _chartData = getChartData();
+    //tạo tooltip
+    _tooltipBehavior = TooltipBehavior(
+      enable: true,
+    );
     super.didChangeDependencies();
   }
 
