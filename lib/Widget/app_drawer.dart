@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:project_mobifone_mobile/Providers/user_dao.dart';
+import 'package:project_mobifone_mobile/Screens/charge_arise_screen.dart';
+import 'package:project_mobifone_mobile/Screens/info_income_screen.dart';
 import 'package:project_mobifone_mobile/Screens/lookup_display_screen.dart';
+import 'package:project_mobifone_mobile/Screens/new_dev_screen.dart';
 import 'package:project_mobifone_mobile/Screens/news_list_screen.dart';
+import 'package:project_mobifone_mobile/Screens/vlr_screen.dart';
 
 import 'package:provider/provider.dart';
 import '../Screens/home_screen.dart';
@@ -54,6 +58,49 @@ class AppDrawer extends StatelessWidget {
             onTap: () {
               Navigator.of(context)
                   .pushReplacementNamed(NewsListScreen.routeName);
+            },
+          ),
+
+          const Divider(),
+          ListTile(
+            //Ấn vào cái này để đến Manage Product Screen
+            leading: const Icon(Icons.now_wallpaper),
+            title: const Text('VLR'),
+            onTap: () {
+              Navigator.of(context).pushReplacementNamed(VRLScreen.routeName);
+            },
+          ),
+
+          const Divider(),
+          ListTile(
+            //Ấn vào cái này để đến Manage Product Screen
+            leading: const Icon(Icons.now_wallpaper),
+            title: const Text('Phát triển mới'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(NewDevScreen.routeName);
+            },
+          ),
+
+          const Divider(),
+          ListTile(
+            //Ấn vào cái này để đến Manage Product Screen
+            leading: const Icon(Icons.now_wallpaper),
+            title: const Text('Doanh thu thông tin'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(InfoIncomeScreen.routeName);
+            },
+          ),
+
+          const Divider(),
+          ListTile(
+            //Ấn vào cái này để đến Manage Product Screen
+            leading: const Icon(Icons.now_wallpaper),
+            title: const Text('Phát sinh cước'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(ChargeAriseScreen.routeName);
             },
           ),
 
