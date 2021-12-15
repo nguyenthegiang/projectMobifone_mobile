@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../../Providers/home_screen_dao.dart';
+import '../../models/card4_chart_data.dart';
 
 //Tương tự Card1Chart nhưng cái này là SfCartesianChart thay vì SfCircularChart
 class Card4Chart extends StatefulWidget {
@@ -15,7 +16,7 @@ class Card4Chart extends StatefulWidget {
 
 class _Card4ChartState extends State<Card4Chart> {
   //chứa data source
-  late List<ChartData> _chartData;
+  late List<Card4ChartData> _chartData;
   //tooltip
   late TooltipBehavior _tooltipBehavior;
   //Biến để cho didChangeDependencies() chỉ chạy 1 lần thôi
@@ -71,30 +72,30 @@ class _Card4ChartState extends State<Card4Chart> {
                 ),
                 tooltipBehavior: _tooltipBehavior,
                 series: <ChartSeries>[
-                  SplineSeries<ChartData, String>(
+                  SplineSeries<Card4ChartData, String>(
                     dataSource: _chartData,
-                    xValueMapper: (ChartData cdata, _) => cdata.dataName,
-                    yValueMapper: (ChartData cdata, _) => cdata.sessionDuration,
-                    name: 'Session Duration',
+                    xValueMapper: (Card4ChartData cdata, _) => cdata.getDate(),
+                    yValueMapper: (Card4ChartData cdata, _) => cdata.TOTAL,
+                    name: 'Total',
                     //style
                     color: Color.fromARGB(255, 35, 158, 252),
                     width: 5,
                   ),
-                  SplineSeries<ChartData, String>(
+                  SplineSeries<Card4ChartData, String>(
                     dataSource: _chartData,
-                    xValueMapper: (ChartData cdata, _) => cdata.dataName,
-                    yValueMapper: (ChartData cdata, _) => cdata.pageViews,
-                    name: 'Page Views',
+                    xValueMapper: (Card4ChartData cdata, _) => cdata.getDate(),
+                    yValueMapper: (Card4ChartData cdata, _) => cdata.TBTT,
+                    name: 'TBTT',
                     //style
                     markerSettings: MarkerSettings(isVisible: true),
                     color: Color.fromARGB(255, 42, 232, 167),
                     width: 3,
                   ),
-                  SplineSeries<ChartData, String>(
+                  SplineSeries<Card4ChartData, String>(
                     dataSource: _chartData,
-                    xValueMapper: (ChartData cdata, _) => cdata.dataName,
-                    yValueMapper: (ChartData cdata, _) => cdata.totalVisits,
-                    name: 'Total Visits',
+                    xValueMapper: (Card4ChartData cdata, _) => cdata.getDate(),
+                    yValueMapper: (Card4ChartData cdata, _) => cdata.TBTS,
+                    name: 'TBTS',
                     //style
                     markerSettings: MarkerSettings(isVisible: true),
                     color: Color.fromARGB(255, 255, 181, 48),
@@ -108,36 +109,10 @@ class _Card4ChartState extends State<Card4Chart> {
   }
 
   //tạo datasource
-  List<ChartData> getChartData() {
-    final List<ChartData> chartData = [
-      ChartData('01 Jan', 39, 40, 81),
-      ChartData('02 Jan', 40, 45, 45),
-      ChartData('03 Jan', 45, 25, 90),
-      ChartData('04 Jan', 41, 20, 100),
-      ChartData('05 Jan', 19, 30, 55),
-      ChartData('06 Jan', 20, 24, 39),
-      ChartData('07 Jan', 21, 20, 63),
-      ChartData('08 Jan', 25, 23, 61),
-      ChartData('09 Jan', 29, 20, 82),
-      ChartData('10 Jan', 59, 4, 57),
-      ChartData('11 Jan', 29, 15, 50),
-    ];
+  List<Card4ChartData> getChartData() {
+    final List<Card4ChartData> chartData =
+        Provider.of<HomeScreenDAO>(context).card4ChartData;
 
     return chartData;
   }
-}
-
-//Class chứa Data cho Chart
-class ChartData {
-  final String dataName;
-  final num sessionDuration;
-  final num pageViews;
-  final num totalVisits;
-
-  ChartData(
-    this.dataName,
-    this.sessionDuration,
-    this.pageViews,
-    this.totalVisits,
-  );
 }
