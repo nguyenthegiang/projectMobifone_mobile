@@ -55,14 +55,14 @@ class _Card2ChartState extends State<Card2Chart> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      child: _isLoading
-          ? Center(
-              child: CircularProgressIndicator(),
-            )
-          : Container(
-              height: 500,
-              width: 1000,
-              child: SafeArea(
+      child: Container(
+        height: 500,
+        width: 1000,
+        child: _isLoading
+            ? Center(
+                child: CircularProgressIndicator(),
+              )
+            : SafeArea(
                 child: SfCartesianChart(
                   title: ChartTitle(
                     text: 'VLR Công ty 4',
@@ -113,7 +113,7 @@ class _Card2ChartState extends State<Card2Chart> {
                   primaryXAxis: CategoryAxis(),
                 ),
               ),
-            ),
+      ),
     );
   }
 

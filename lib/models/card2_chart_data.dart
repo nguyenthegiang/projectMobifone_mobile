@@ -1,4 +1,4 @@
-//class để lưu trữ 1 data cho Chart của Card3 trong Home Page
+//class để lưu trữ 1 data cho Chart của Card2 trong Home Page
 import 'package:intl/intl.dart';
 
 class Card2ChartData {
