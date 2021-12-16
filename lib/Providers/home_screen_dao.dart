@@ -14,7 +14,7 @@ class HomeScreenDAO with ChangeNotifier {
   List<Card3ChartData> card3ChartData = [];
   List<Card2ChartData> card2ChartData = [];
   List<Card4ChartData> card4ChartData = [];
-  List<Card1ChartData> card1ChartData = [];
+  Card1ChartData card1ChartData = new Card1ChartData(0, 0, 0);
 
   //function để gọi API lấy Data cho Chart của Card3
   Future<void> getcard3ChartData() async {
@@ -137,17 +137,14 @@ class HomeScreenDAO with ChangeNotifier {
           .map((e) => e as Map<String, dynamic>)
           .toList();
 
-      final List<Card1ChartData> loadedData = [];
+      Card1ChartData loadedData = new Card1ChartData(0, 0, 0);
       for (var element in extractedData) {
-        loadedData.add(
-          Card1ChartData(
-            double.parse(element['VLR']),
-            double.parse(element['DTTT']),
-            double.parse(element['PTM']),
-          ),
+        loadedData = new Card1ChartData(
+          double.parse(element['VLR']),
+          double.parse(element['DTTT']),
+          double.parse(element['PTM']),
         );
       }
-
       card1ChartData = loadedData;
 
       notifyListeners();
