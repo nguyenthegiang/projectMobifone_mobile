@@ -88,9 +88,46 @@ class HomeScreenDAO with ChangeNotifier {
     }
   }
 
-  //function để gọi API lấy Data cho Chart của Card1
+  //function để gọi API lấy Data cho Chart của Card4
   Future<void> getcard4ChartData() async {
     const url = 'http://mobi.test.bcdcnt.net/dashboard_ptm';
+
+    try {
+      final response = await http.get(Uri.parse(url));
+      final extractedData = (jsonDecode(response.body)["data"] as List)
+          .map((e) => e as Map<String, dynamic>)
+          .toList();
+
+      final List<Card4ChartData> loadedData = [];
+      for (var element in extractedData) {
+        loadedData.add(
+          Card4ChartData(
+            DateTime.parse(element['ISSUE_DATE']),
+            int.parse(element['TBTT']),
+            int.parse(element['TBTS']),
+            int.parse(element['TOTAL']),
+          ),
+        );
+      }
+
+      card4ChartData = loadedData;
+
+      //print thử ra console
+      card4ChartData.forEach((element) {
+        print(element.IssueDate);
+      });
+
+      notifyListeners();
+    } catch (error) {
+      print(error);
+      //nếu có lỗi thì tung ra để xử lý ở Widget
+      rethrow;
+    }
+  }
+
+  //function để gọi API lấy Data cho Chart của Card1
+  Future<void> getcard1ChartData() async {
+    const url = 'http://mobi.test.bcdcnt.net/dashboard_plan';
 
     try {
       final response = await http.get(Uri.parse(url));
