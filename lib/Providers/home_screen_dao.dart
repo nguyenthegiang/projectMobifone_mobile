@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import '../models/card1_chart_data.dart';
 import '../models/card2_chart_data.dart';
 import '../models/card3_chart_data.dart';
 import '../models/card4_chart_data.dart';
@@ -13,6 +14,7 @@ class HomeScreenDAO with ChangeNotifier {
   List<Card3ChartData> card3ChartData = [];
   List<Card2ChartData> card2ChartData = [];
   List<Card4ChartData> card4ChartData = [];
+  List<Card1ChartData> card1ChartData = [];
 
   //function để gọi API lấy Data cho Chart của Card3
   Future<void> getcard3ChartData() async {
@@ -135,24 +137,18 @@ class HomeScreenDAO with ChangeNotifier {
           .map((e) => e as Map<String, dynamic>)
           .toList();
 
-      final List<Card4ChartData> loadedData = [];
+      final List<Card1ChartData> loadedData = [];
       for (var element in extractedData) {
         loadedData.add(
-          Card4ChartData(
-            DateTime.parse(element['ISSUE_DATE']),
-            int.parse(element['TBTT']),
-            int.parse(element['TBTS']),
-            int.parse(element['TOTAL']),
+          Card1ChartData(
+            double.parse(element['VLR']),
+            double.parse(element['DTTT']),
+            double.parse(element['PTM']),
           ),
         );
       }
 
-      card4ChartData = loadedData;
-
-      //print thử ra console
-      card4ChartData.forEach((element) {
-        print(element.IssueDate);
-      });
+      card1ChartData = loadedData;
 
       notifyListeners();
     } catch (error) {
