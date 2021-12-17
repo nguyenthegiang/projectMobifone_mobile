@@ -7,6 +7,7 @@ import '../Widget/home_screen_widgets/card_4.dart';
 import '../Widget/home_screen_widgets/card_3.dart';
 import '../Widget/home_screen_widgets/card_2.dart';
 import '../Widget/home_screen_widgets/card_1.dart';
+import '../Widget/home_screen_widgets/card_7.dart';
 import '../Widget/app_drawer.dart';
 
 //Home Page
@@ -29,6 +30,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             //có thể chuyển sang ListView.builder
             Card1(),
+            Card7(),
             Card2(),
             Card3(),
             Card4(),

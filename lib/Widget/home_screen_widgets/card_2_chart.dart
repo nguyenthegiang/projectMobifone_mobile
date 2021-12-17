@@ -81,7 +81,7 @@ class _Card2ChartState extends State<Card2Chart> {
                           cdata.getDate(),
                       yValueMapper: (Card2ChartData cdata, _) => cdata.TOTAL,
                       name: 'Total',
-                      width: 0.5,
+                      width: 0.3,
                       //style
                       color: Color.fromARGB(255, 41, 160, 249),
                     ),
