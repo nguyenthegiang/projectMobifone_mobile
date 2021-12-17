@@ -13,3 +13,6 @@
 
 ### Version 2.3
     -   Add Back-End for Home Screen
+
+### Version 2.4
+    -  Improve Home Screen
